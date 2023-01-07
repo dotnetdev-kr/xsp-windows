@@ -1,0 +1,21 @@
+FROM mcr.microsoft.com/dotnet/framework/sdk:3.5-windowsservercore-ltsc2022 AS builder
+
+WORKDIR /xsp
+COPY . .
+
+RUN msbuild xsp35.sln /p:Configuration=Release /p:Platform="Any CPU" /p:TargetFrameworkVersion="v3.5"
+
+FROM mcr.microsoft.com/windows/servercore:ltsc2022
+COPY --from=builder /xsp/Mono.WebServer.XSP/bin/Release/fx35 /xsp
+
+EXPOSE 9000/tcp
+
+WORKDIR /xsp
+RUN powershell -Command Install-WindowsFeature Web-Asp-Net; \
+  mkdir "C:\FusionLog"; \
+  reg.exe add HKLM\SOFTWARE\Microsoft\Fusion /v EnableLog /t REG_DWORD /d 1 /f /reg:64; \
+  reg.exe add HKLM\SOFTWARE\Microsoft\Fusion /v ForceLog /t REG_DWORD /d 1 /f /reg:64; \
+  reg.exe add HKLM\SOFTWARE\Microsoft\Fusion /v LogFailures /t REG_DWORD /d 1 /f /reg:64; \
+  reg.exe add HKLM\SOFTWARE\Microsoft\Fusion /v LogResourceBinds /t REG_DWORD /d 1 /f /reg:64; \
+  reg.exe add HKLM\SOFTWARE\Microsoft\Fusion /v LogPath /t REG_SZ /d "C:\FusionLog" /f /reg:64
+CMD ["C:/xsp/bin/xsp.exe"]
