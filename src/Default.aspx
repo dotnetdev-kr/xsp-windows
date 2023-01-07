@@ -1,0 +1,1 @@
+<asp:Label runat="server">Hello, World!</asp:Label>

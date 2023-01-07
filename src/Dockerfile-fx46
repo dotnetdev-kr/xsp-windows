@@ -6,16 +6,18 @@ COPY . .
 RUN msbuild xsp46.sln /p:Configuration=Release /p:Platform="Any CPU" /p:TargetFrameworkVersion="v4.6"
 
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2022
-COPY --from=builder /xsp/Mono.WebServer.XSP/bin/Release/fx46 /xsp
+COPY --from=builder /xsp/Mono.WebServer.XSP/bin/Release/fx46 /inetpub/wwwroot
 
 EXPOSE 9000/tcp
 
-WORKDIR /xsp
+WORKDIR /inetpub/wwwroot
+COPY Default.aspx .
 RUN powershell -Command \
-  mkdir "C:\FusionLog"; \
+  del "C:\inetpub\wwwroot\xsp4.cmd"; \
+  mkdir "C:\FusionLog" ^| Out-Null; \
   reg.exe add HKLM\SOFTWARE\Microsoft\Fusion /v EnableLog /t REG_DWORD /d 1 /f /reg:64; \
   reg.exe add HKLM\SOFTWARE\Microsoft\Fusion /v ForceLog /t REG_DWORD /d 1 /f /reg:64; \
   reg.exe add HKLM\SOFTWARE\Microsoft\Fusion /v LogFailures /t REG_DWORD /d 1 /f /reg:64; \
   reg.exe add HKLM\SOFTWARE\Microsoft\Fusion /v LogResourceBinds /t REG_DWORD /d 1 /f /reg:64; \
   reg.exe add HKLM\SOFTWARE\Microsoft\Fusion /v LogPath /t REG_SZ /d "C:\FusionLog" /f /reg:64
-ENTRYPOINT ["C:/xsp/bin/xsp4.exe"]
+ENTRYPOINT C:/inetpub/wwwroot/bin/xsp4.exe
