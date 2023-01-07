@@ -66,19 +66,19 @@
     <Compile Include="XSPWorkerRequest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mono.Security\fx35-Mono.Security.csproj">
-      <Project>{41967fa9-ada6-432f-a93b-2a1c6bbad23a}</Project>
-      <Name>fx35-Mono.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mono.WebServer\fx35-Mono.WebServer.csproj">
-      <Project>{2c1eba4d-4efd-4836-8665-5e66df297412}</Project>
-      <Name>fx35-Mono.WebServer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="xsp4.cmd">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mono.Security\fx46-Mono.Security.csproj">
+      <Project>{41967fa9-ada6-432f-a93b-2a1c6bbad23a}</Project>
+      <Name>fx46-Mono.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mono.WebServer\fx46-Mono.WebServer.csproj">
+      <Project>{2c1eba4d-4efd-4836-8665-5e66df297412}</Project>
+      <Name>fx46-Mono.WebServer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
