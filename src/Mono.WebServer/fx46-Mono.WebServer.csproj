@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2C1EBA4D-4EFD-4836-8665-5E66DF297412}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Mono.WebServer</RootNamespace>
+    <AssemblyName>Mono.WebServer</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\fx46\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\fx46\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationServer.cs" />
+    <Compile Include="BaseApplicationHost.cs" />
+    <Compile Include="BaseRequestBroker.cs" />
+    <Compile Include="EndOfRequestHandler.cs" />
+    <Compile Include="FinePlatformID.cs" />
+    <Compile Include="HttpErrors.cs" />
+    <Compile Include="IApplicationHost.cs" />
+    <Compile Include="InitialWorkerRequest.cs" />
+    <Compile Include="IRequestBroker.cs" />
+    <Compile Include="LingeringNetworkStream.cs" />
+    <Compile Include="LockRecursionException.cs" />
+    <Compile Include="LockRecursionPolicy.cs" />
+    <Compile Include="Log\FileLogger.cs" />
+    <Compile Include="Log\ILogger.cs" />
+    <Compile Include="Log\Logger.cs" />
+    <Compile Include="Log\LogLevel.cs" />
+    <Compile Include="MapPathEventArgs.cs" />
+    <Compile Include="MapPathEventHandler.cs" />
+    <Compile Include="MonoWorkerRequest.cs" />
+    <Compile Include="Options\ConfigurationManager.cs" />
+    <Compile Include="Options\ConfigurationManager.Fields.cs" />
+    <Compile Include="Options\ConfigurationManagerExtensions.cs" />
+    <Compile Include="Options\Descriptions.cs" />
+    <Compile Include="Options\IHelpConfigurationManager.cs" />
+    <Compile Include="Options\Options.cs" />
+    <Compile Include="Options\ServerConfigurationManager.cs" />
+    <Compile Include="Options\Settings\BoolSetting.cs" />
+    <Compile Include="Options\Settings\EnumSetting.cs" />
+    <Compile Include="Options\Settings\Int32Setting.cs" />
+    <Compile Include="Options\Settings\ISetting.cs" />
+    <Compile Include="Options\Settings\NullableInt32Setting.cs" />
+    <Compile Include="Options\Settings\NullableSetting.cs" />
+    <Compile Include="Options\Settings\NullableUInt16Setting.cs" />
+    <Compile Include="Options\Settings\Parser.cs" />
+    <Compile Include="Options\Settings\Setting.cs" />
+    <Compile Include="Options\Settings\SettingsCollection.cs" />
+    <Compile Include="Options\Settings\SettingSource.cs" />
+    <Compile Include="Options\Settings\StringSetting.cs" />
+    <Compile Include="Options\Settings\UInt16Setting.cs" />
+    <Compile Include="Options\Settings\UInt32Setting.cs" />
+    <Compile Include="Paths.cs" />
+    <Compile Include="RequestData.cs" />
+    <Compile Include="RequestLineException.cs" />
+    <Compile Include="SearchPattern.cs" />
+    <Compile Include="UnregisterRequestEventArgs.cs" />
+    <Compile Include="UnregisterRequestEventHandler.cs" />
+    <Compile Include="Version.cs" />
+    <Compile Include="VPathToHost.cs" />
+    <Compile Include="WebSource.cs" />
+    <Compile Include="WebTrace.cs" />
+    <Compile Include="Worker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{41967FA9-ADA6-432F-A93B-2A1C6BBAD23A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Mono.Security</RootNamespace>
+    <AssemblyName>Mono.Security</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\fx35\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;FULL_AOT_RUNTIME</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\fx35\</OutputPath>
+    <DefineConstants>TRACE;FULL_AOT_RUNTIME</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Locale.cs" />
+    <Compile Include="Mono.Math.Prime.Generator\NextPrimeFinder.cs" />
+    <Compile Include="Mono.Math.Prime.Generator\PrimeGeneratorBase.cs" />
+    <Compile Include="Mono.Math.Prime.Generator\SequentialSearchPrimeGeneratorBase.cs" />
+    <Compile Include="Mono.Math.Prime\ConfidenceFactor.cs" />
+    <Compile Include="Mono.Math.Prime\PrimalityTests.cs" />
+    <Compile Include="Mono.Math\BigInteger.cs" />
+    <Compile Include="Mono.Security.Authenticode\AuthenticodeBase.cs" />
+    <Compile Include="Mono.Security.Authenticode\PrivateKey.cs" />
+    <Compile Include="Mono.Security.Authenticode\SoftwarePublisherCertificate.cs" />
+    <Compile Include="Mono.Security.Cryptography\ARC4Managed.cs" />
+    <Compile Include="Mono.Security.Cryptography\CryptoConvert.cs" />
+    <Compile Include="Mono.Security.Cryptography\CryptoTools.cs" />
+    <Compile Include="Mono.Security.Cryptography\DHKeyGeneration.cs" />
+    <Compile Include="Mono.Security.Cryptography\DHParameters.cs" />
+    <Compile Include="Mono.Security.Cryptography\DiffieHellman.cs" />
+    <Compile Include="Mono.Security.Cryptography\DiffieHellmanManaged.cs" />
+    <Compile Include="Mono.Security.Cryptography\KeyPairPersistence.cs" />
+    <Compile Include="Mono.Security.Cryptography\MD2.cs" />
+    <Compile Include="Mono.Security.Cryptography\MD2Managed.cs" />
+    <Compile Include="Mono.Security.Cryptography\MD4.cs" />
+    <Compile Include="Mono.Security.Cryptography\MD4Managed.cs" />
+    <Compile Include="Mono.Security.Cryptography\PKCS1.cs" />
+    <Compile Include="Mono.Security.Cryptography\PKCS8.cs" />
+    <Compile Include="Mono.Security.Cryptography\RC4.cs" />
+    <Compile Include="Mono.Security.Cryptography\RSAManaged.cs" />
+    <Compile Include="Mono.Security.Cryptography\SHA224.cs" />
+    <Compile Include="Mono.Security.Cryptography\SHA224Managed.cs" />
+    <Compile Include="Mono.Security.Cryptography\SymmetricTransform.cs" />
+    <Compile Include="Mono.Security.Cryptography\TlsHMAC.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\AuthorityKeyIdentifierExtension.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\BasicConstraintsExtension.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\CertificatePoliciesExtension.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\CRLDistributionPointsExtension.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\ExtendedKeyUsageExtension.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\GeneralNames.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\KeyAttributesExtension.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\KeyUsageExtension.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\NetscapeCertTypeExtension.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\PrivateKeyUsagePeriodExtension.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\SubjectAltNameExtension.cs" />
+    <Compile Include="Mono.Security.X509.Extensions\SubjectKeyIdentifierExtension.cs" />
+    <Compile Include="Mono.Security.X509\PKCS12.cs" />
+    <Compile Include="Mono.Security.X509\X501Name.cs" />
+    <Compile Include="Mono.Security.X509\X509Builder.cs" />
+    <Compile Include="Mono.Security.X509\X509Certificate.cs" />
+    <Compile Include="Mono.Security.X509\X509CertificateBuilder.cs" />
+    <Compile Include="Mono.Security.X509\X509CertificateCollection.cs" />
+    <Compile Include="Mono.Security.X509\X509CRL.cs" />
+    <Compile Include="Mono.Security.X509\X509Extension.cs" />
+    <Compile Include="Mono.Security.X509\X509Extensions.cs" />
+    <Compile Include="Mono.Security.X509\X520Attributes.cs" />
+    <Compile Include="Mono.Security\ASN1.cs" />
+    <Compile Include="Mono.Security\ASN1Convert.cs" />
+    <Compile Include="Mono.Security\BitConverterLE.cs" />
+    <Compile Include="Mono.Security\PKCS7.cs" />
+    <Compile Include="Mono.Security\StrongName.cs" />
+    <Compile Include="Mono.Xml\MiniParser.cs" />
+    <Compile Include="Mono.Xml\SecurityParser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
